@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/banner_login"
+    android:backgroundTint="#4DCFA570"
+    android:backgroundTintMode="src_atop"
+    tools:context=".LoginPage">
+
+    <LinearLayout
+        android:id="@+id/login_bg"
+        android:layout_width="300dp"
+        android:layout_height="350dp"
+        android:background="@drawable/bg_cornerradius_login"
+        android:backgroundTint="#80131313"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:id="@+id/tv_welcome_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/averta_cyrillic_bold"
+            android:text="Қош келдіңіз!"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="32dp" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:id="@+id/email"
+                style="@style/et_login_form"
+                android:layout_height="wrap_content"
+                android:autoSizeMaxTextSize="50dp"
+                android:drawableLeft="@drawable/envelope"
+                android:drawableTint="@color/white"
+                android:hint="E-mail"
+                android:textColorHint="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/password"
+                style="@style/et_login_form"
+                android:drawableLeft="@drawable/password"
+                android:drawableTint="@color/white"
+                android:hint="Құпия сөз"
+                android:inputType="textPassword"
+                android:textColorHint="@color/white"/>
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:padding="10dp"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="50dp"
+            android:text="КІРУ"
+            android:textColor="#2a0575"
+            android:textSize="18dp"
+
+            />
+
+        <TextView
+            android:id="@+id/tv_registration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/averta_semibold"
+            android:text="Жаңа қолданушысыз ба?"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:textSize="16dp" />
+
+        <Button
+            android:id="@+id/btnReg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ТІРКЕЛУ"
+            android:background="#00ffffff"
+            android:textColor="@color/white"
+            android:includeFontPadding="false"/>
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

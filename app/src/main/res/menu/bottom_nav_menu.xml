@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/bottom_nav_home"
+        android:title="Басты бет"
+        android:icon="@drawable/home"
+        app:cnb_iconColor = "@color/purple_2"
+        app:cnb_backgroundColor = "@color/white"
+        app:cnb_textColor = "@color/purple_2"/>
+
+    <item
+        android:id="@+id/bottom_nav_about"
+        android:title="Абай туралы"
+        android:icon="@drawable/book"
+        app:cnb_iconColor = "@color/purple_2"
+        app:cnb_backgroundColor = "@color/white"
+        app:cnb_textColor = "@color/purple_2"/>
+
+    <item
+        android:id="@+id/bottom_nav_exam"
+        android:title="Тесттер"
+        android:icon="@drawable/verified"
+        app:cnb_iconColor = "@color/purple_2"
+        app:cnb_backgroundColor = "@color/white"
+        app:cnb_textColor = "@color/purple_2"/>
+
+    <item
+        android:id="@+id/bottom_nav_rating"
+        android:title="Рейтинг"
+        android:icon="@drawable/trophy"
+        app:cnb_iconColor = "@color/purple_2"
+        app:cnb_backgroundColor = "@color/white"
+        app:cnb_textColor = "@color/purple_2"/>
+
+    <item
+        android:id="@+id/bottom_nav_profile"
+        android:title="Профиль"
+        android:icon="@drawable/user"
+        app:cnb_iconColor = "@color/purple_2"
+        app:cnb_backgroundColor = "@color/white"
+        app:cnb_textColor = "@color/purple_2"/>
+
+</menu>

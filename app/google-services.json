@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "432058243218",
+    "project_id": "ulyabai",
+    "storage_bucket": "ulyabai.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:432058243218:android:c44b29da744f8f3371ae4b",
+        "android_client_info": {
+          "package_name": "com.example.ulyabai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "432058243218-bguolhm3903g0qd2qj57e2e36vrqu3p9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxWlVY2r3ZO4Tt97wTeVBcqVxDAlWwklU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "432058243218-bguolhm3903g0qd2qj57e2e36vrqu3p9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
