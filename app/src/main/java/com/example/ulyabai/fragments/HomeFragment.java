@@ -2,19 +2,33 @@ package com.example.ulyabai.fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.ProgressBar;
 
+import com.example.ulyabai.HomeAdapter;
+import com.example.ulyabai.HomeModel;
 import com.example.ulyabai.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
+
 public class HomeFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -25,6 +39,12 @@ public class HomeFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    RecyclerView recyclerView;
+    RecyclerView.LayoutManager linearLayoutManager;
+    HomeAdapter homeAdapter;
+    ArrayList<HomeModel> homeList;
+    FirebaseFirestore db;
+    ProgressBar progressBar;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -55,12 +75,49 @@ public class HomeFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        recyclerView = view.findViewById(R.id.recyclerView);
+        linearLayoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+
+
+
+        homeList = new ArrayList<>();
+        homeAdapter = new HomeAdapter(getActivity(), homeList);
+        recyclerView.setAdapter(homeAdapter);
+
+        db = FirebaseFirestore.getInstance();
+
+
+        collectList();
+
+        return view;
+        
+
     }
-}
+
+    private void collectList() {
+        db.collection("news").get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot documentSnapshots) {
+                        List<DocumentSnapshot> list = documentSnapshots.getDocuments();
+                        for (DocumentSnapshot d:list) {
+                            HomeModel obj = d.toObject(HomeModel.class);
+                            homeList.add(obj);
+                        }
+                        homeAdapter.notifyDataSetChanged();
+                    }
+
+                    });
+                }
+    }

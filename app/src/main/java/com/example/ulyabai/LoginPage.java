@@ -3,12 +3,14 @@ package com.example.ulyabai;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,6 +23,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
     EditText email, pswrd;
     Button btnLogin, btnReg;
     FirebaseAuth auth;
+    ProgressDialog dialog;
 
 
     @Override
@@ -33,6 +36,9 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
         email = findViewById(R.id.email);
         pswrd = findViewById(R.id.password);
         auth = FirebaseAuth.getInstance();
+
+        dialog = new ProgressDialog(this);
+        dialog.setMessage("Профильіңізге кіруде...");
 
         btnLogin.setOnClickListener(this);
         btnReg.setOnClickListener(this);
@@ -56,14 +62,18 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
                 String uEmail = email.getText().toString();
                 String uPswrd = pswrd.getText().toString();
 
+                dialog.show();
+
                 auth.signInWithEmailAndPassword(uEmail, uPswrd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
+                            dialog.dismiss();
                             Toast.makeText(LoginPage.this, "Сіз профильіңізге сәтті кірдіңіз!", Toast.LENGTH_SHORT).show();
                             Intent intent  = new Intent(LoginPage.this, HomePage.class);
                             startActivity(intent);
                         } else{
+                            dialog.dismiss();
                             Toast.makeText(LoginPage.this, task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }

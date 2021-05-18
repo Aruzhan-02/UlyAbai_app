@@ -3,6 +3,7 @@ package com.example.ulyabai;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -23,6 +24,7 @@ public class RegistrationPage extends AppCompatActivity implements View.OnClickL
     EditText username, email, phoneNumber, pswrd, confirmPswrd;
     FirebaseAuth auth;
     FirebaseFirestore database;
+    ProgressDialog dialog;
 
 
 
@@ -39,6 +41,9 @@ public class RegistrationPage extends AppCompatActivity implements View.OnClickL
 
         auth = FirebaseAuth.getInstance();
         database = FirebaseFirestore.getInstance();
+
+        dialog = new ProgressDialog(this);
+        dialog.setMessage("Жаңа профильіңіз ашылуда...");
 
         btnReg.setOnClickListener(this);
 
@@ -71,6 +76,8 @@ public class RegistrationPage extends AppCompatActivity implements View.OnClickL
         String uEmail = email.getText().toString();
         String uPswrd = pswrd.getText().toString();
 
+        dialog.show();
+
         auth.createUserWithEmailAndPassword(uEmail, uPswrd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -78,6 +85,7 @@ public class RegistrationPage extends AppCompatActivity implements View.OnClickL
                     addDatatoFirestore();
 
                 } else{
+                    dialog.dismiss();
                     Toast.makeText(RegistrationPage.this, task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
@@ -103,6 +111,7 @@ public class RegistrationPage extends AppCompatActivity implements View.OnClickL
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
+                    dialog.dismiss();
                     Toast.makeText(RegistrationPage.this, "Сіз сәтті тіркелдіңіз!", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(RegistrationPage.this, LoginPage.class);
                     startActivity(intent);
