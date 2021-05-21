@@ -1,6 +1,7 @@
 package com.example.ulyabai;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +18,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
     private Context context;
     private List<HomeModel> HomeList;
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public ImageView image;
         public TextView title, date;
 
@@ -27,6 +28,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
             image = view.findViewById(R.id.image);
             title = view.findViewById(R.id.tvTitle);
             date = view.findViewById(R.id.tvDate);
+            view.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(context, SingleNewsPage.class);
+            context.startActivity(intent);
         }
     }
 

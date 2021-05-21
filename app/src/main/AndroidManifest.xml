@@ -10,9 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UlyAbai"
         android:windowSoftInputMode="adjustResize|stateAlwaysVisible">
+        <activity android:name=".SingleNewsPage"></activity>
         <activity
             android:name=".HomePage"
-            android:label="@string/title_activity_home_page"></activity>
+            android:label="@string/title_activity_home_page" />
         <activity android:name=".RegistrationPage" />
         <activity android:name=".LoginPage" />
         <activity android:name=".MainActivity" />

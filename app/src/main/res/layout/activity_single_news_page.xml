@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SingleNewsPage"
+        android:orientation="vertical"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Something is happened!!!"
+            android:textSize="35dp"
+            android:textColor="@color/black" />
+
+        <ImageView
+            android:id="@+id/tvImage"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:src="@drawable/ic_image"/>
+
+        <TextView
+            android:id="@+id/tvText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Телесериал «Абай жолы», снятый по заказу Агентства «Хабар», получил национальную телевизионную премию «ТҰМАР» в номинации «Лучший телевизионный сериал». Сериал «Абай жолы» посвящен истории создания одноименного романа классика отечественной литературы Мухтара Ауезова. В основе сериала драматические, трагические моменты из жизни Абая в конце XIX века, 30-е годы XX века, когда молодой Мухтар Ауэзов вместе с другими государственными и общественными деятелями подвергался гонениям. На протяжении десятилетий он разговаривал более чем с тысячей человек и собирал много информации об Абае. Торжественная церемония вручения премии «Тұмар» прошла сегодня, 6 мая, в Нур-Султане. К участию в Премии допускались телевизионные проекты, вышедшие в эфир казахстанских телеканалов в 2020-м году. Победители Премии получат изящную статуэтку-оберег и денежное вознаграждение в размере 1 миллион тенге за вклад в развитие казахстанского телевидения. В 2021 году на соискание Премии было заявлено 250 работ по 10 номинациям, из них 88 на казахском языке и 162 на русском. Наибольшее количество заявок поступило в номинациях «Лучший документальный фильм» – 42, «Лучший тележурналист» – 40, «Лучший телеведущий» – 38 и «Лучшая режиссерская работа» – 31."
+            android:textSize="18dp"
+            android:textColor="@color/black" />
+
+
+
+    </LinearLayout>
+</ScrollView>

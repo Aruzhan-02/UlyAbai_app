@@ -102,11 +102,11 @@ public class RegistrationPage extends AppCompatActivity implements View.OnClickL
 
         User user = new User(uName, uEmail, uPhoneNumber, uPswrd, uConPswrd);
 
-        String emailFormat = user.getEmail().replace(".", "-");
+
 
         database
                 .collection("users")
-                .document(emailFormat)
+                .document(uEmail)
                 .set(user).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
