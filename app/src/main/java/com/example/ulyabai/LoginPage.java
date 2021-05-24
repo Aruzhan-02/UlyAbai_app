@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginPage extends AppCompatActivity implements View.OnClickListener {
 
@@ -42,6 +43,12 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
 
         btnLogin.setOnClickListener(this);
         btnReg.setOnClickListener(this);
+
+        FirebaseUser currentUser = auth.getCurrentUser();
+        if (currentUser != null){
+            Intent intent = new Intent(LoginPage.this, HomePage.class);
+            startActivity(intent);
+        }
     }
 
     @Override

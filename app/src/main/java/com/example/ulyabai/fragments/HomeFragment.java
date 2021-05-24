@@ -1,8 +1,10 @@
 package com.example.ulyabai.fragments;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -44,7 +46,7 @@ public class HomeFragment extends Fragment {
     HomeAdapter homeAdapter;
     ArrayList<HomeModel> homeList;
     FirebaseFirestore db;
-    ProgressBar progressBar;
+    ProgressDialog progressBar;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -88,7 +90,8 @@ public class HomeFragment extends Fragment {
         linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
 
-
+        progressBar = new ProgressDialog(getContext());
+        progressBar.setMessage("Жүктелуде...");
 
 
         homeList = new ArrayList<>();
@@ -97,11 +100,12 @@ public class HomeFragment extends Fragment {
 
         db = FirebaseFirestore.getInstance();
 
-
+        progressBar.show();
         collectList();
 
         return view;
-        
+
+
 
     }
 
@@ -110,10 +114,12 @@ public class HomeFragment extends Fragment {
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot documentSnapshots) {
+                        progressBar.dismiss();
                         List<DocumentSnapshot> list = documentSnapshots.getDocuments();
                         for (DocumentSnapshot d:list) {
                             HomeModel obj = d.toObject(HomeModel.class);
                             homeList.add(obj);
+
                         }
                         homeAdapter.notifyDataSetChanged();
                     }
@@ -121,3 +127,4 @@ public class HomeFragment extends Fragment {
                     });
                 }
     }
+

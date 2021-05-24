@@ -33,7 +33,9 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
 
         @Override
         public void onClick(View v) {
+            String nDate = date.getText().toString();
             Intent intent = new Intent(context, SingleNewsPage.class);
+            intent.putExtra("news_date",nDate);
             context.startActivity(intent);
         }
     }
