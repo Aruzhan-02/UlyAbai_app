@@ -7,10 +7,10 @@ import android.os.Bundle;
 import android.view.WindowManager;
 
 import com.example.ulyabai.fragments.AboutFragment;
-import com.example.ulyabai.fragments.ExamFragment;
-import com.example.ulyabai.fragments.HomeFragment;
+import com.example.ulyabai.exam.ExamFragment;
 import com.example.ulyabai.fragments.ProfileFragment;
 import com.example.ulyabai.fragments.RatingFragment;
+import com.example.ulyabai.homepage.HomeFragment;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 public class HomePage extends AppCompatActivity {

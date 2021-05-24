@@ -1,4 +1,4 @@
-package com.example.ulyabai;
+package com.example.ulyabai.homepage;
 
 public class News {
     String title, image, text;

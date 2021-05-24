@@ -1,4 +1,4 @@
-package com.example.ulyabai;
+package com.example.ulyabai.auth;
 
 public class User {
     String name, email, phoneNumber, pswrd, confirmPswrd;

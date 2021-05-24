@@ -1,4 +1,4 @@
-package com.example.ulyabai;
+package com.example.ulyabai.homepage;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.ulyabai.R;
 
 import java.util.List;
 

@@ -13,7 +13,7 @@
         android:background="@drawable/banner_login"
         android:backgroundTint="#4DCFA570"
         android:backgroundTintMode="src_atop"
-        tools:context=".RegistrationPage">
+        tools:context=".auth.RegistrationPage">
 
         <LinearLayout
             android:id="@+id/linearLayout"

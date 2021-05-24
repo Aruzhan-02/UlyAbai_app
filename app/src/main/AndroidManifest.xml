@@ -10,14 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UlyAbai"
         android:windowSoftInputMode="adjustResize|stateAlwaysVisible">
-        <activity android:name=".SingleNewsPage"></activity>
+        <activity android:name=".exam.CategoryExamsPage"></activity>
+        <activity android:name=".homepage.SingleNewsPage" />
         <activity
             android:name=".HomePage"
             android:label="@string/title_activity_home_page" />
-        <activity android:name=".RegistrationPage" />
-        <activity android:name=".LoginPage" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".SplashScreen">
+        <activity android:name=".auth.RegistrationPage" />
+        <activity android:name=".auth.LoginPage" />
+        <activity android:name=".auth.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
